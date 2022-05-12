@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title>LAB7</title>
+     <script data-require="angular.js@1.0.7" data-semver="1.0.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+</head>
+<body>
+    <div ng-app="CalculatorApp" ng-controller="CalculatorController">
+        <p><input type="number" ng-model="a"></p>
+        <p><input type="number" ng-model="b"></p>
+        <p><select ng-model="operator">
+                <option>+</option>
+                <option>*</option>
+                <option>-</option>
+                <option>/</option>
+            </select></p>
+        <p>{{ result()}}</p>
+    </div>
+    <script>angular.module('CalculatorApp', [])
+    .controller('CalculatorController', function($scope) {
+        $scope.result = function() {
+            if ($scope.operator == '+') {
+                return $scope.a + $scope.b;
+            }
+            if ($scope.operator == '-') {
+                return $scope.a - $scope.b;
+            }
+            if ($scope.operator == '*') {
+                return $scope.a * $scope.b;
+            }
+            if ($scope.operator == '/') {
+                return $scope.a / $scope.b;
+            }
+        };
+    });</script>
+</body>
+</html>
